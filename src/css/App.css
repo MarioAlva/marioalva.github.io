@@ -48,6 +48,16 @@
   width: 94px;
 }
 
+.select-language-hover{
+  background: #6c4e8e;
+  border-radius: 6px;
+  height: 43px;
+  position: fixed;
+  right: 160px;
+  top: 37px;
+  width: 94px;
+}
+
 .flag-language {
   border-radius: 5px;
   left: 17px;
