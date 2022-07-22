@@ -27,10 +27,11 @@
 }
 
 .logo-curriculum {
-  width: 280px;
-  margin-left: 100px;
-  margin-top: -25px;
   display: flex;
+  left: 100px;
+  position: fixed;
+  top: -25px;
+  width: 280px;
 }
 
 .hide{
@@ -38,18 +39,37 @@
 }
 
 .select-language{
-  right: 10px;
-  width: 20px;
-  height: 15px;
+  background: #2b2038;
+  border-radius: 6px;
+  height: 43px;
+  position: fixed;
+  right: 160px;
+  top: 37px;
+  width: 94px;
 }
 
-.header-container{
+.flag-language {
+  border-radius: 5px;
+  left: 17px;
+  position: absolute;
+  top: 12px;
+  width: 30px;
+}
+
+.arrow-down-language {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  width: 17px;
+}
+
+.header-container {
   background-color: #322948;
   border-bottom: 8px solid #18132a4f;
-  height: 122px;
-  width: 100%;
   box-shadow: 10px 5px 20px 15px rgb(181 166 205 / 45%);
   display: inline-flex;
+  height: 100px;
+  width: 100%;
 }
 
 @keyframes App-logo-spin {
