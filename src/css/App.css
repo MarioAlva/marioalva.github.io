@@ -14,12 +14,19 @@
 }
 
 .App-header {
-  background-color: #02002ac2;
-  position: fixed;
+  position: relative;
   font-size: calc(10px + 2vmin);
-  min-height: 100%;
-  min-width: 100%;
+  width: 100%;
   color: white;
+  z-index: 100;
+}
+
+.App-body{
+  background-color: #02002ac2;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 108px;
 }
 
 .App-link {
@@ -58,12 +65,67 @@
   width: 94px;
 }
 
+.flag-language-inhover{
+  width: 30px;
+  top: 6px;
+}
+
 .flag-language {
   border-radius: 5px;
   left: 17px;
   position: absolute;
   top: 12px;
   width: 30px;
+}
+
+.flags-container{
+  position: fixed;
+  width: 200px;
+  height: 176px;
+  background-color: #171546;
+  right: 107px;
+  top: 97px;
+  border-radius: 6px;
+}
+
+.flags-container::before{
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: #171546;
+  top: -10px;
+  left: 88px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.specific-flag{
+  background-color: #49487c;
+}
+
+.flags-container .specific-flag:first-child::before{
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: #49487c;
+  top: -10px;
+  left: 88px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.specific-flag:first-of-type{
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+
+.specific-flag:last-of-type {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  height: auto;
 }
 
 .arrow-down-language {
@@ -76,18 +138,28 @@
 .header-container {
   background-color: #322948;
   border-bottom: 8px solid #18132a4f;
-  box-shadow: 10px 5px 20px 15px rgb(181 166 205 / 45%);
-  display: inline-flex;
   height: 100px;
   width: 100%;
+  animation: mymove 4s infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.pointer{
+  cursor: pointer;
+}
+
+.padding-each-language{
+  padding-bottom: 5px;
+}
+
+@keyframes mymove {
+  0% {
+    box-shadow: 10px 5px 20px 15px rgb(227 212 255 / 45%);
   }
-  to {
-    transform: rotate(360deg);
+  40% {
+    box-shadow: 10px 5px 15px 1px rgb(227 212 255 / 45%);
+  }
+  100% {
+    box-shadow: 10px 5px 20px 15px rgb(227 212 255 / 45%);
   }
 }
 

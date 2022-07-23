@@ -7,44 +7,91 @@ import lang_jap from '../img/lang_jap.png';
 import arrow_down from '../img/arrow_down.png';
 import arrow_down_idle from '../img/arrow_down_idle.png';
 import '../css/App.css';
+import OutsideAlerter from "./OutsideAlerter";
 
 function App() {
-  const [html] = document.getElementsByTagName("html")
-  const lang = html.getAttribute("lang");
+  var lang = navigator.languages[1];
   const [mainLang, setMainLang] = useState(false);
-  const mainLangHover = event => {
-    // 👇️ toggle isActive state on click
-    setMainLang(current => !current);
-  };
+  var [showLang, setShowLang] = useState(false);
+  const mainLangHover = event => {setMainLang(current => !current);};
+  var mainLangClick = event => {setShowLang(current => !current);};
+  const langBucle = [{"id": 1, "name": "specific_flag_1","src": lang_esp, "text": "Español"}, {"id": 2, "name": "specific_flag_2", "src": lang_cat, "text": "Catalan"}, {"id": 3, "name": "specific_flag_3", "src": lang_usa, "text": "Inglés"}, {"id": 4, "name": "specific_flag_4", "src": lang_jap, "text": "Japonés"}];
   return (
     <div className="App">
       <header className="App-header">
         <div className='header-container'>
           <img src={logo_curriculum} className="logo-curriculum" alt="LogoCurriculum"/>
-          <div id="select_lang" className={mainLang ? 'select-language-hover' : 'select-language'}
+          <div id="select_lang" className={mainLang ? 'select-language-hover pointer' : 'select-language'}
+            onClick={mainLangClick}
             onMouseEnter={mainLangHover}
             onMouseLeave={mainLangHover}>
-            <img className='flag-language' src={changeFlag()} alt="spanish_flag"/>
-            <img className='arrow-down-language' src={mainLang ? arrow_down : arrow_down_idle} alt="arrow"/>
+            <img id='main_flag_language' className='flag-language' src={changeFlag()} alt="spanish_flag"/>
+            <img id='main_arrow_language' className='arrow-down-language' src={mainLang ? arrow_down : arrow_down_idle} alt="arrow"/>
           </div>
-          <div className='hide'>
-            <img src={lang_esp} alt="spanish_flag"/>
-            <img src={lang_cat} alt="catalan_flag"/>
-            <img src={lang_usa} alt="usa_flag"/>
-            <img src={lang_jap} alt="japanese_flag"/>
-          </div>
+          <OutsideAlerter setisActive={mainLangClick = event => {setShowLang(current => !current);}} isActive={showLang}>
+          {showLang ? 
+          <div 
+          id="flags_container"
+          className='flags-container'>
+            {langBucle.map(language => 
+            <div id={language.name}
+            key={language.name}
+            className="pointer padding-each-language"
+            onClick={chooseLanguage}
+            onMouseEnter={specificFlagHover}
+            onMouseLeave={specificFlagHoverOut}>
+              <img id={true ? language.name + "_image" : ''} className='flag-language-inhover' src={language.src} alt="flag"/>
+              <span id={true ? language.name + "_text" : ''}>  {language.text}</span>
+            </div>)}
+          </div> : null
+          }
+          </OutsideAlerter>
         </div>
       </header>
+      <div className='App-body'>
+        
+      </div>
     </div>
   );
+
+  function chooseLanguage(e){
+    if(e.target.id.startsWith('specific_flag_1')){
+      lang = 'es';
+      document.getElementById('main_flag_language').attributes.src.value = lang_esp;
+    }else if(e.target.id.startsWith('specific_flag_2')){
+        lang = 'cat';
+        document.getElementById('main_flag_language').attributes.src.value = lang_cat;
+    }else if(e.target.id.startsWith('specific_flag_3')){
+        lang = 'en';
+        document.getElementById('main_flag_language').attributes.src.value = lang_usa;
+    }else{lang = 'jp';document.getElementById('main_flag_language').attributes.src.value = lang_jap;}
+    changeFlag();
+  }
+  
+  function specificFlagHover(e){
+    if(e.target.id.startsWith('specific_flag_1')){
+        document.getElementById('specific_flag_1').classList.add('specific-flag');
+    }else if(e.target.id.startsWith('specific_flag_2')){
+        document.getElementById('specific_flag_2').classList.add('specific-flag');
+    }else if(e.target.id.startsWith('specific_flag_3')){
+        document.getElementById('specific_flag_3').classList.add('specific-flag');
+    }else{document.getElementById('specific_flag_4').classList.add('specific-flag');}
+  }
+
+  function specificFlagHoverOut(e){
+    if(e.target.id.startsWith('specific_flag_1')){
+        document.getElementById('specific_flag_1').classList.remove('specific-flag');
+    }else if(e.target.id.startsWith('specific_flag_2')){
+        document.getElementById('specific_flag_2').classList.remove('specific-flag');
+    }else if(e.target.id.startsWith('specific_flag_3')){
+        document.getElementById('specific_flag_3').classList.remove('specific-flag');
+    }else{ document.getElementById('specific_flag_4').classList.remove('specific-flag'); }
+  }
   function changeFlag(){
     switch(lang){
       case "es": return lang_esp;
-      break;
       case "cat": return lang_cat;
-      break;
       case "jp": return lang_jap;
-      break;
       default: return lang_usa
     }
   }
