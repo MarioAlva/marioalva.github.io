@@ -10,12 +10,45 @@ import '../css/App.css';
 import OutsideAlerter from "./OutsideAlerter";
 
 function App() {
-  var lang = navigator.languages[1];
+  try {var lang = localStorage.getItem('lang')}
+  catch{
+    lang = navigator.languages[1];
+  }
   const [mainLang, setMainLang] = useState(false);
   var [showLang, setShowLang] = useState(false);
   const mainLangHover = event => {setMainLang(current => !current);};
   var mainLangClick = event => {setShowLang(current => !current);};
-  const langBucle = [{"id": 1, "name": "specific_flag_1","src": lang_esp, "text": "Español"}, {"id": 2, "name": "specific_flag_2", "src": lang_cat, "text": "Catalan"}, {"id": 3, "name": "specific_flag_3", "src": lang_usa, "text": "Inglés"}, {"id": 4, "name": "specific_flag_4", "src": lang_jap, "text": "Japonés"}];
+  const Traducciones = [
+    {
+      "name": "es",
+      "es": "Español",
+      "cat": "Espanyol",
+      "en": "Spanish",
+      "jp": "スペイン語"
+    },
+    {
+      "name": "cat",
+      "es": "Catalán",
+      "cat": "Català",
+      "en": "Catalan",
+      "jp": "カタロニア語"
+    },
+    {
+      "name": "en",
+      "es": "Inglés",
+      "cat": "Anglès",
+      "en": "English",
+      "jp": "英語"
+    },
+    {
+      "name": "jp",
+      "es": "Japonés",
+      "cat": "Japonès",
+      "en": "Japanese",
+      "jp": "日本語"
+    },
+  ];
+  const langBucle = [{"id": 1, "name": "specific_flag_1","src": lang_esp, "text": "es"}, {"id": 2, "name": "specific_flag_2", "src": lang_cat, "text": "cat"}, {"id": 3, "name": "specific_flag_3", "src": lang_usa, "text": "en"}, {"id": 4, "name": "specific_flag_4", "src": lang_jap, "text": "jp"}];
   return (
     <div className="App">
       <header className="App-header">
@@ -41,7 +74,7 @@ function App() {
             onMouseEnter={specificFlagHover}
             onMouseLeave={specificFlagHoverOut}>
               <img id={true ? language.name + "_image" : ''} className='flag-language-inhover' src={language.src} alt="flag"/>
-              <span id={true ? language.name + "_text" : ''}>  {language.text}</span>
+              <span id={true ? language.name + "_text" : ''}>  {langFilter(language.text)}</span>
             </div>)}
           </div> : null
           }
@@ -53,6 +86,21 @@ function App() {
       </div>
     </div>
   );
+
+  function langFilter(translation) {
+    try{
+      const translationWords = Traducciones.filter(word => word.name === translation);
+      switch(lang){
+        case "es": return translationWords[0].es;
+        case "cat": return translationWords[0].cat;
+        case "jp": return translationWords[0].jp;
+        default: return translationWords[0].en;
+      }
+    }
+    catch{
+      return "Translation error"
+    }
+  }
 
   function chooseLanguage(e){
     if(e.target.id.startsWith('specific_flag_1')){
@@ -66,6 +114,9 @@ function App() {
         document.getElementById('main_flag_language').attributes.src.value = lang_usa;
     }else{lang = 'jp';document.getElementById('main_flag_language').attributes.src.value = lang_jap;}
     changeFlag();
+    mainLangClick();
+    localStorage.setItem('lang', lang);
+    window.location.reload();
   }
   
   function specificFlagHover(e){

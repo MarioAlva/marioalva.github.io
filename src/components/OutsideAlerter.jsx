@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 /**
  * Component that alerts if you click outside of it
@@ -35,7 +34,3 @@ export default class OutsideAlerter extends Component {
     return <div ref={this.wrapperRef}>{this.props.children}</div>;
   }
 }
-
-OutsideAlerter.propTypes = {
-  children: PropTypes.element.isRequired
-};
