@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.dfd83d51.css",
-    "main.js": "/static/js/main.e0f82419.js",
+    "main.css": "/static/css/main.39e84e59.css",
+    "main.js": "/static/js/main.078c198b.js",
     "static/js/787.e8871c4f.chunk.js": "/static/js/787.e8871c4f.chunk.js",
     "static/media/Logo-Curriculum.png": "/static/media/Logo-Curriculum.0fd0fce95a2391ecc41c.png",
     "static/media/lang_esp.png": "/static/media/lang_esp.2a467fbfe8c72fa6de2f.png",
+    "static/media/mi_foto.png": "/static/media/mi_foto.2556bdd392dcbc063be0.png",
     "static/media/lang_jap.jpg": "/static/media/lang_jap.4abe98af73197a1aa735.jpg",
     "static/media/lang_usa.png": "/static/media/lang_usa.72009baa363c0ddf1e6b.png",
     "static/media/arrow_down_idle.png": "/static/media/arrow_down_idle.8f2207e8c73e2ef4813c.png",
     "index.html": "/index.html",
-    "main.dfd83d51.css.map": "/static/css/main.dfd83d51.css.map",
-    "main.e0f82419.js.map": "/static/js/main.e0f82419.js.map",
+    "main.39e84e59.css.map": "/static/css/main.39e84e59.css.map",
+    "main.078c198b.js.map": "/static/js/main.078c198b.js.map",
     "787.e8871c4f.chunk.js.map": "/static/js/787.e8871c4f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dfd83d51.css",
-    "static/js/main.e0f82419.js"
+    "static/css/main.39e84e59.css",
+    "static/js/main.078c198b.js"
   ]
 }
