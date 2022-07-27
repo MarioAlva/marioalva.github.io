@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.b35e3c3d.css",
-    "main.js": "/static/js/main.9e960901.js",
+    "main.css": "/static/css/main.8c3b0e90.css",
+    "main.js": "/static/js/main.8ec8b9b4.js",
     "static/js/787.e8871c4f.chunk.js": "/static/js/787.e8871c4f.chunk.js",
     "static/media/Logo-Curriculum.png": "/static/media/Logo-Curriculum.0fd0fce95a2391ecc41c.png",
     "static/media/lang_esp.png": "/static/media/lang_esp.2a467fbfe8c72fa6de2f.png",
+    "static/media/ikea_logo.jpg": "/static/media/ikea_logo.8f57eaf67886672d9b67.jpg",
     "static/media/mi_foto.png": "/static/media/mi_foto.2556bdd392dcbc063be0.png",
     "static/media/lang_jap.jpg": "/static/media/lang_jap.4abe98af73197a1aa735.jpg",
     "static/media/lang_usa.png": "/static/media/lang_usa.72009baa363c0ddf1e6b.png",
     "static/media/arrow_down_idle.png": "/static/media/arrow_down_idle.8f2207e8c73e2ef4813c.png",
     "index.html": "/index.html",
-    "main.b35e3c3d.css.map": "/static/css/main.b35e3c3d.css.map",
-    "main.9e960901.js.map": "/static/js/main.9e960901.js.map",
+    "main.8c3b0e90.css.map": "/static/css/main.8c3b0e90.css.map",
+    "main.8ec8b9b4.js.map": "/static/js/main.8ec8b9b4.js.map",
     "787.e8871c4f.chunk.js.map": "/static/js/787.e8871c4f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b35e3c3d.css",
-    "static/js/main.9e960901.js"
+    "static/css/main.8c3b0e90.css",
+    "static/js/main.8ec8b9b4.js"
   ]
 }
